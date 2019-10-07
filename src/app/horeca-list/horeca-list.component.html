@@ -22,7 +22,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let h of horeca | search:'Naam, Branche, Winkelgebied':query | paginate: { itemsPerPage: count, currentPage: page } ">
+        <tr *ngFor="let h of horeca | search:'Naam, Branche, Winkelgebied':query | paginate: { itemsPerPage: count, currentPage: page }">
 			<td>{{ h.json_featuretype}}</td>
 			<td>{{ h.Naam }}</td>
 			<td>{{ h.Branche }}</td>
