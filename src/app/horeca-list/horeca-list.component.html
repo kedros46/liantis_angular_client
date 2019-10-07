@@ -22,31 +22,10 @@
 			<td>{{ h.Branche }}</td>
 			<td>{{ h.Winkelgebied }}</td>
 			<td>{{ h.Straat }} {{h.HuisNr}}, {{h.Postcode}} {{h.Gemeente}}</td>
-			<td><a href="#" class="dislaymap" [attr.data-latlng]="h.json_geometry.coordinates">Show Map</a></td>
+			<td><button >Show Map</button></td>
         </tr>
       </tbody>
     </table>
   </div>
-</div>
-<div id="maps">
-	
-</div>
-<script>
 
-	function initMap(e) {
-		let latlng = {lat: 51.0538502, lng: 3.7231907};
-		map = new google.maps.Map(document.getElementById('maps'), {
-			center: latlng,
-			zoom: 12,
-			clickableIcons: false,  // prevent admin from clicking on Maps POI icon instead of placing marker (ie. a train station)
-			fullscreenControl: false,
-			gestureHandling: 'greedy',
-			mapTypeControl: false,
-			streetViewControl: false
-		});
-	}
-
-	document.querySelector(".dislaymap").addEventListener("click", initMap);
-</script>
-<script src="https://maps.googleapis.com/maps/api/js?key=   YOUR_API_KEY   &callback=initMap"
-    async defer></script>
+</div>

@@ -10,6 +10,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { MatInputModule, MatListModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SearchPipe } from './horeca-list/search.pipe';
+import { AgmCoreModule } from '@agm/core';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,11 @@ import { SearchPipe } from './horeca-list/search.pipe';
     HttpClientModule,
     MatInputModule,
     MatListModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyBDeIsR0pwCDDlDMdy5wu1dsBILxl9qiKA'
+    })
+ 
   ],
   providers: [HorecaService],
   bootstrap: [AppComponent]
