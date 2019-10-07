@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-
 import { HorecaComponent } from '../horeca/horeca.component';
 import { HorecaService } from '../service/horeca-service.service';
+
 
 
 @Component({
@@ -10,8 +10,9 @@ import { HorecaService } from '../service/horeca-service.service';
   styleUrls: ['./horeca-list.component.css']
 })
 export class HorecaListComponent implements OnInit {
-
   horeca: HorecaComponent[];
+  page = 1;
+  count = 50;
 
   constructor(private horecaService: HorecaService) { }
 
@@ -21,4 +22,5 @@ export class HorecaListComponent implements OnInit {
       this.horeca = data;
     });
   }
+
 }

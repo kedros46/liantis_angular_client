@@ -25,7 +25,7 @@ export class HorecaComponent implements OnInit {
   Strnmenhuisnr: string;
   Aangemaakt: string;
   json_ogc_wkt_crs: string;
-  json_geometry: string;
+  json_geometry: Array<any>;
 
   constructor() { 
 

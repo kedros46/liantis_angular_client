@@ -1,8 +1,14 @@
 <div class="card my-5">
   <div class="card-body">
-	<mat-form-field id="filter" >
-		<input matInput placeholder="filter naam, Branch of Winkelgebied..." [(ngModel)]="query" value="">
-	</mat-form-field>
+	<div class="text-right ">
+		<mat-form-field id="filter" >
+			<input matInput placeholder="filter naam, Branch of Winkelgebied..." [(ngModel)]="query" value="">
+		</mat-form-field>
+	</div>
+
+	<div class="text-right">
+		<pagination-controls (pageChange)="page = $event"></pagination-controls>
+	</div>
 
 	<table class="table table-bordered table-striped">
       <thead class="thead-dark">
@@ -16,16 +22,19 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let h of horeca | search:'Naam, Branche, Winkelgebied':query">
+        <tr *ngFor="let h of horeca | search:'Naam, Branche, Winkelgebied':query | paginate: { itemsPerPage: count, currentPage: page } ">
 			<td>{{ h.json_featuretype}}</td>
 			<td>{{ h.Naam }}</td>
 			<td>{{ h.Branche }}</td>
 			<td>{{ h.Winkelgebied }}</td>
 			<td>{{ h.Straat }} {{h.HuisNr}}, {{h.Postcode}} {{h.Gemeente}}</td>
-			<td><button >Show Map</button></td>
+			<td><button [attr.data-lat]="h.json_geometry.coordinates[0]" [attr.data-lng]="h.json_geometry.coordinates[1]">
+				<agm-map [latitude]="h.json_geometry.coordinates[0]" [longitude]="h.json_geometry.coordinates[1]">
+					<agm-marker [latitude]="h.json_geometry.coordinates[0]" [longitude]="h.json_geometry.coordinates[1]"></agm-marker>
+				</agm-map>
+			</button></td>
         </tr>
       </tbody>
     </table>
   </div>
-
 </div>

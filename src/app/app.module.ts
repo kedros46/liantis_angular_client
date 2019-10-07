@@ -11,6 +11,7 @@ import { MatInputModule, MatListModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SearchPipe } from './horeca-list/search.pipe';
 import { AgmCoreModule } from '@agm/core';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { AgmCoreModule } from '@agm/core';
     MatInputModule,
     MatListModule,
     BrowserAnimationsModule,
+    NgxPaginationModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyBDeIsR0pwCDDlDMdy5wu1dsBILxl9qiKA'
     })
